@@ -35,8 +35,10 @@ def load_data(data):
 
 def get_model():
     model = keras.Sequential([
+        layers.Input((IMG_WIDTH, IMG_HEIGHT)),
         layers.Flatten(input_shape=(IMG_HEIGHT, IMG_WIDTH)),
-        layers.Dense(128, activation="relu"),
+        layers.Dense(128),
+        layers.Activation("relu"),
         layers.Dense(10)
     ])
 
