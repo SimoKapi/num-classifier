@@ -30,15 +30,15 @@ def addToSelection(event):
     x = canvas.canvasx(event.x)
     y = canvas.canvasy(event.y)
 
-    overlapping = canvas.find_overlapping(x - pixel_multiplier, y - pixel_multiplier, x+pixel_multiplier, y+pixel_multiplier)
+    overlapping = canvas.find_overlapping(x, y, x+pixel_multiplier, y+pixel_multiplier)
     for item in overlapping:
         canvas.itemconfigure(item, fill="black")
 
     relativeX = int(x/pixel_multiplier)
     relativeY = int(y/pixel_multiplier)
 
-    for i in range(-1, 2):
-        for j in range(-1, 2):
+    for i in range(0, 2):
+        for j in range(0, 2):
             try:
                 inputimg[relativeY + i][relativeX + j] = 1
             except Exception:
